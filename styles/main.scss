@@ -1,0 +1,95 @@
+$bg: #5a210f;
+$brand: #d58c6e;
+$text: #222;
+$muted: #999;
+$divider: #cfa592;
+$accent: #e5b4a0;
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: $bg; }
+.shell { max-width: 980px; margin: 0 auto; background: #fff; min-height: 100vh; position: relative; }
+
+.header { padding: 24px 28px 0; }
+.brand { font-weight: 800; font-size: 64px; color: $brand; letter-spacing: 2px; }
+.nav-link { background: none; border: none; margin-right: 24px; font-size: 16px; color: #333; cursor: pointer; }
+.nav-link:hover { color: $brand; }
+.cart { float: right; width: 24px; height: 24px; border: 2px solid $text; border-radius: 4px; }
+.divider { border: none; border-top: 2px solid $divider; margin: 10px 0 20px; }
+
+main { display: block; padding: 0 28px 28px; color: $text; }
+
+/* Filters + Posters */
+.page.posters { display: grid; grid-template-columns: 220px 1fr; gap: 24px; }
+.filters { padding-right: 12px; }
+.filters .filter-title { font-weight: 600; margin: 10px 0; }
+.genre-list { list-style: none; padding: 0; margin: 0; }
+.genre-link { background: none; border: none; color: #5b86a8; cursor: pointer; padding: 4px 0; text-align: left; }
+.page-content { padding-left: 12px; border-left: 2px solid $divider; }
+
+.posters-grid .grid-header h2 { margin: 0 0 8px; color: #333; }
+.sort-wrap { text-align: right; margin-bottom: 10px; }
+.sort-select { padding: 6px 8px; }
+
+.cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
+.card { background: #fff; border-radius: 4px; padding: 12px; text-align: center; box-shadow: 0 0 0 1px #eee; }
+.card img { width: 100%; height: auto; border-radius: 4px; }
+.card-title { margin-top: 8px; }
+.card-price { color: #666; margin: 4px 0 8px; }
+.card-actions { display: flex; justify-content: center; gap: 8px; }
+.btn { padding: 8px 12px; border-radius: 4px; border: 1px solid #b79a8f; background: #e8d1c9; cursor: pointer; }
+.btn.primary { background: $accent; }
+.btn.secondary { background: #f0e6e2; }
+.btn.icon-heart::after { content: "♡"; display: inline-block; margin-left: 4px; }
+
+/* Detail */
+.page.detail { display: grid; grid-template-columns: 1fr 320px; gap: 24px; }
+.detail-left h2 { margin-top: 0; color: #333; }
+.detail-actions { display: flex; gap: 8px; margin-top: 10px; }
+.detail-right img { width: 100%; height: auto; border-radius: 4px; }
+
+/* Home */
+.hero { width: 100%; height: 220px; border-radius: 8px; background: none; }
+.hero.curtains {
+  /* use root-relative path to avoid CSS location issues */
+  background: url('/assets/Curtains.png') center/cover no-repeat;
+}
+.section-title { color: $brand; font-size: 28px; margin: 16px 0; }
+.home-list {
+  display: grid; // switch from flex to grid
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+.home-row { display: grid; grid-template-columns: 160px 1fr; gap: 16px; align-items: start; }
+.home-row img { width: 160px; height: auto; border-radius: 4px; }
+.home-info h3 { margin: 0 0 6px; }
+.home-actions { display: flex; gap: 8px; margin-top: 8px; }
+
+/* About */
+.page.about .about-grid { display: grid; grid-template-columns: 1fr 340px; gap: 24px; }
+.about-image { width: 100%; height: 340px; background: url('https://images.unsplash.com/photo-1522199755839-a2d83b3ee50f?q=80&w=800&auto=format&fit=crop') center/cover no-repeat; border-radius: 6px; }
+
+/* Forms */
+.form { display: grid; gap: 12px; max-width: 520px; }
+.form label { display: grid; gap: 6px; }
+.form input, .form textarea { padding: 8px; border: 1px solid #eadbd3; background: #fbf6f4; }
+.form-actions { display: flex; gap: 8px; }
+.form-links a { color: #5b86a8; text-decoration: none; margin-right: 12px; }
+
+/* Footer */
+.footer { padding: 0 28px 24px; }
+.footer-left, .footer-mid, .footer-right { display: inline-block; vertical-align: top; width: 32%; }
+.footer-right { text-align: right; }
+.icon { display: inline-block; width: 28px; height: 28px; background: #ddd; border-radius: 6px; margin-left: 6px; }
+
+@media (min-width: 1000px) {
+  .cards { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 700px) {
+  .page.posters { grid-template-columns: 1fr; }
+  .page-content { border-left: none; padding-left: 0; }
+  .cards { grid-template-columns: 1fr; }
+  .page.detail { grid-template-columns: 1fr; }
+  .page.about .about-grid { grid-template-columns: 1fr; }
+  .home-list { grid-template-columns: 1fr; }
+}
